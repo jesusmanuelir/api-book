@@ -1,9 +1,13 @@
 import React from 'react';
-import Header from '../components/Navbar';
+import Navbar from '../components/Navbar';
+import Container from '../components/Container';
 
 const App = () => {
     return(
-        <Header />
+        <>
+        <Navbar />
+        <Container />
+        </>
     );
 };
 
