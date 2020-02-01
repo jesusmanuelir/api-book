@@ -1,27 +1,12 @@
 import React from 'react';
 
-const Container = () =>{
-    return(
+
+const Container = ({ children }) =>(
         <div className="container">
-        <div className="row">
-            <div className="col-4">
-            One of three columns
+            <div className="row">
+                { children }
             </div>
-            <div className="col-4">
-            One of three columns
-            </div>
-            <div className="col-4">
-            One of three columns
-            </div>
-            <div className="col-4">
-            One of three columns
-            </div>
-            <div className="col-4">
-            One of three columns
-            </div>
-        </div>
         </div>
     );
-}
 
 export default Container;

@@ -3,7 +3,7 @@ import React from 'react';
 
  const Navbar = () => {
      return (
-        <nav className="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+        <nav className="navbar navbar-expand-lg navbar-expand-sm navbar-expand-md navbar navbar-dark bg-primary">
         
       
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
