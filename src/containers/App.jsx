@@ -15,14 +15,21 @@ const App = () => {
     const Change = (event) =>{
         setState({value: event.target.value});
     }
+   
+        const [books, setBook] = useState([]);
     
-    const InitialState = useInitialState(state.value);
-  
-    console.log(InitialState.length);
-
+        useEffect(() => {
+            fetch('https://www.googleapis.com/books/v1/volumes?q=search+'+state.value)
+            .then(response => response.json())
+            .then(data => setBook(data));
+        },[]);
+        console.log(books.items);
         
+ 
         return(
             <div className="app">
+ 
+
             <Navbar />
             <div className="active-cyan-3 active-cyan-4 mb-4 container Search-element__margin">
                 <input className="form-control" type="text" placeholder="Search" onChange={Change} />

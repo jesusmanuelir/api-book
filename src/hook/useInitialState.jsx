@@ -10,7 +10,7 @@ const useInitialState = (letter) =>{
     },[]);
 
   
-    return book;
+    return book.items;
 }
 
 export default useInitialState;
