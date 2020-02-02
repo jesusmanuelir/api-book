@@ -5,18 +5,24 @@ import Book from '../components/Book';
 
 
 const App = () => {
-    const [book, setBook] = useState([]);
-    useEffect(() => {
-        fetch('https://www.googleapis.com/books/v1/volumes?q=search+Jesus')
-        .then(response => response.json())
-        .then(data => setBook(data));
-    },[]);
 
-    console.log(book);
+
+
+    const [book, setBook] = useState([]);
+
+        useEffect(() => {
+            fetch('https://www.googleapis.com/books/v1/volumes?q=search+')
+            .then(response => response.json())
+            .then(data => setBook(data));
+        },[]);
+        
+
     return(
         <div className="app">
         <Navbar />
-
+        <div className="active-cyan-3 active-cyan-4 mb-4 container Search-element__margin">
+            <input className="form-control" type="text" placeholder="Search" aria-label="Search" />
+        </div>
         <Container>
             <Book />
             <Book />
