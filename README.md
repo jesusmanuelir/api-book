@@ -11,3 +11,7 @@ Development mode
 Production mode
 
 `$ npm run build`
+
+Unit Testing
+
+`$ npm test`
