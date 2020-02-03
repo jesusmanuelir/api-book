@@ -8,7 +8,7 @@ const Book = ({title, id, subtitle, publishedDate, description, authors}) => {
     const handleShow = () => setShow(true);
     
     return(  
-        <div className="col-sm-12 col-md-3 col-lg-3 Book-item__margin ">
+        <div className="col-sm-12 col-md-4 col-lg-3 Book-item__margin ">
             <div className="card" >
                 <img className="card-img-top Book-item__size-img" src={`http://books.google.com/books/content?id=${id}&printsec=frontcover&img=1&zoom=1&source=gbs_api`} alt="{title}" />
                 <div className="card-body Book-item__text">

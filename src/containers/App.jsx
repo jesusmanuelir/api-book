@@ -10,10 +10,12 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [books, setBooks] = useState({ items: [] });
   const [startIndex,setStartIndex] = useState(0);
+  const [pagination,setPagination] = useState(1);
+  const maxResults = 12;
  
   let API_URL = `https://www.googleapis.com/books/v1/volumes`;
   const fetchBooks = async () => {
-    const result = await axios.get(`${API_URL}?q=${search}&startIndex=${startIndex}&maxResults=12`);
+    const result = await axios.get(`${API_URL}?q=${search}&startIndex=${startIndex}&maxResults=${maxResults}`);
     setBooks(result.data);   
     };
 
@@ -23,11 +25,13 @@ const App = () => {
       
   const onSubmitNext = e => {
     setStartIndex(startIndex + 12);
+    setPagination(pagination+1);
     fetchBooks();
   }; 
         
   const onSubmitPreview = e => {
     setStartIndex(startIndex - 12);
+    setPagination(pagination-1);
     fetchBooks();
   };    
       
@@ -58,7 +62,7 @@ const App = () => {
       <Container>
         
         {books.items.map((book) => {
-          return(
+          return books.items.length === 0 ? <h3>Cargando.... </h3> : (
                   <Book title         = { book.volumeInfo.title } 
                         id            = { book.id } 
                         subtitle      = { book.volumeInfo.subtitle }
@@ -70,11 +74,14 @@ const App = () => {
                   
                 );
           })}
-    
+        
            {books.items.length > 0 &&
               <div className="mx-auto ">
+                {startIndex != 0 && 
                   <button input="button" className="btn btn-outline-primary Pagination-button__margin" onClick={onSubmitPreview}>Previous</button>
-                  <button input="button" className="btn btn-outline-primary Pagination-button__margin" onClick={onSubmitNext}>Next</button>
+                }
+                  <button input="button" className="btn btn-outline-primary Pagination-button__margin" onClick={onSubmitNext}>Next </button>
+              
               </div>}
 
       </Container>
