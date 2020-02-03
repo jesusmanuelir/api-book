@@ -23,7 +23,12 @@ nav{
   margin: 30px 10px !important;
 }
 
-
+.Book-title__font{
+  width: 250px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 
 .carousel-item:hover ~ .carousel-item {
     -webkit-transform: translate3d(100px, 0, 0);

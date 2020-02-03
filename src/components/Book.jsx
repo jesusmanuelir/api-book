@@ -12,7 +12,7 @@ const Book = ({title, id, subtitle, publishedDate, description, authors}) => {
             <div className="card" >
                 <img className="card-img-top Book-item__size-img" src={`http://books.google.com/books/content?id=${id}&printsec=frontcover&img=1&zoom=1&source=gbs_api`} alt="{title}" />
                 <div className="card-body Book-item__text">
-                   
+                    <h6 className="Book-title__font">{title}</h6>
                     <a href="#" title="More Information" className="card-link " onClick={handleShow}><IoIosInformationCircleOutline /></a>
                 </div>
             </div>
