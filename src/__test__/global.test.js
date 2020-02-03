@@ -1,3 +1,7 @@
+import React from "react";
+import { render, unmountComponentAtNode } from "react-dom";
+import Book from "../components/Book";
+import { act } from "react-dom/test-utils";
 import axios from "axios";
 import "regenerator-runtime/runtime";
 
@@ -12,5 +16,36 @@ test("Search book async await", async () => {
     expect(data.status).toEqual(status);
   });
 
+  let container = null;
+  beforeEach(() => {
+    container = document.createElement("div");
+    document.body.appendChild(container);
+  });
+  
+  afterEach(() => {
+    unmountComponentAtNode(container);
+    container.remove();
+    container = null;
+  });
 
+  test("Send data to book component", () => {
+
+  
+    const bookInf = { title: "Exploring C for Microcontrollers", 
+                      id: "RqFQAAAAMAAJ" ,
+                      subtitle: "A Hands on Approach" ,
+                      publishedDate: "2009-09-03" ,
+                      description: "Unlike traditional embedded systems references, this book skips routine..." ,
+                      authors: "Jivan ParabVinod G"                      
+                    };
+ 
+    act(() => {
+      render(<Book title = { bookInf.title } />,container
+      );
+    });
+  
+ 
+    expect(container.querySelector("#title").textContent).toEqual("Exploring C for Microcontrollers");
+   
+  });
 
