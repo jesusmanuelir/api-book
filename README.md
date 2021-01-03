@@ -1,17 +1,37 @@
-# Run
+# Search books
 
-Install packages
+Book search using Google Books APIs
 
-`$ npm install`
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-Development mode
+## Installation
 
-`$ npm start`
+Clone this repo and npm install.
 
-Production mode
+```bash
+$ npm install
+```
 
-`$ npm run build`
+## Usage
 
-Unit Testing
+### Development server
 
-`$ npm test`
+```bash
+$ npm start
+```
+
+You can view the development server at `localhost:8080`.
+
+### Production build
+
+```bash
+$ npm run build
+```
+### Unit Testing
+
+```bash
+$ npm test
+```
+
+
+
